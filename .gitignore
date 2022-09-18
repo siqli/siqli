@@ -1,0 +1,4 @@
+worker/*.html
+worker/redirects.json
+node_modules
+package-lock.json

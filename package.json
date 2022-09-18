@@ -1,0 +1,33 @@
+{
+  "private": true,
+  "name": "siqli",
+  "version": "2.2.2",
+  "description": "Use a Cloudflare worker as a basic URL redirector.",
+  "homepage": "https://siq.li",
+  "config": {
+    "charset": "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789",
+    "codeLength": 3,
+    "reservedWords": [
+      "about",
+      "contact",
+      "utm",
+      "burpees",
+      "siq",
+      "siqli"
+    ]
+  },
+  "author": "Siqli",
+  "license": "Jam",
+  "scripts": {
+    "links": "node links/filter-links.js",
+    "minify": "node site/minify.js",
+    "dev": "wrangler dev --local",
+    "deploy": "wrangler publish",
+    "start": "run-s links minify dev",
+    "publish": "run-s links minify deploy"
+  },
+  "devDependencies": {
+    "html-minifier": "^4.0.0",
+    "npm-run-all": "^4.1.5"
+  }
+}

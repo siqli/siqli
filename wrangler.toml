@@ -1,0 +1,12 @@
+name = "siqli"
+main = "worker/index.mjs"
+compatibility_date = "2022-09-18"
+# workers_dev = true
+minify = true
+routes = [
+	{ pattern = "siq.li", custom_domain = true }
+]
+
+## If it is set here, it isn't private, right!?
+# [vars]
+#   LINKS_PAGE = "..."
