@@ -15,8 +15,8 @@
 import redirects from "./redirects.json"
 
 // Import HTML
-import homepage from "../site/index.html"
-import notfound from "../site/notfound.html"
+import homepage from "./index.html"
+import notfound from "./notfound.html"
 
 // Standard Response headers
 const headers = new Headers({
