@@ -31,6 +31,11 @@
         line-height: 150%;
         color: var(--fg1);
       }
+      h1:focus {
+        outline: none;
+        text-decoration: underline;
+        text-decoration-color: var(--fg2);
+      }
       a {
         color: var(--fg1);
       }
@@ -53,7 +58,7 @@
         font-weight: 600;
       }
       dd {
-        margin-bottom: 2.5rem;
+        margin-bottom: 4rem;
       }
       code {
         font-family: monospace;
@@ -109,7 +114,7 @@
     
     <header>
       
-      <h1>Siqli</h1>
+      <h1 tabindex="0">Siqli</h1>
     
     </header>
 
@@ -126,8 +131,11 @@
           <dt>UTM Link Generator</dt>
           <dd>Manage UTM Paramaters for campaigns.<br><a href="https://utm.siq.li" title="UTM Link Generator"><code>utm.siq.li</code></a></dd>
 
-          <dt>This Site</dt>
-          <dd>Simple page plus URL shortener and redirector running on Cloudflare Workers.<br><a href="https://siq.li" title="UTM Link Generator"><code>siq.li</code></a></dd>
+          <dt>Edge Redirector</dt>
+          <dd>Bare minimum URL redirector on the Edge. Cloudflare and Netlify versions.<br><a href="https://github.com/siqli/edge-redirector" title="Edge Redirector"><code>GitHub</code></a></dd>
+
+          <dt>Siqli (this site)</dt>
+          <dd>Simple page plus URL shortener and redirector running on Cloudflare Workers.<br><a href="https://github.com/siqli/siqli" title="Siqli"><code>GitHub</code></a></dd>
         </dl>
 
       </section>
