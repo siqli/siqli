@@ -1,5 +1,5 @@
 /**
- * Siqli Site
+ * Siqli
  * ============================================
  * - CLI URL shortener
  * - Cloudflare Workers URL redirector
@@ -45,7 +45,7 @@ export default {
     
     // Only accept GET and HEAD
     if (method !== "GET" && method !== "HEAD") {
-      headers.set('Allow', "GET, HEAD")
+      headers.append('Allow', "GET, HEAD")
       headers.set('Cache-Control', 'public, min-fresh=86400, max-age=604800, s-max-age=604800, must-revalidate, must-understand')
       return new Response("Method Not Allowed", {
         status: 405,
@@ -56,16 +56,26 @@ export default {
     // Handle redirects as first priority
     if (redirects.hasOwnProperty(path) && www !== true) {
       headers.set('Cache-Control', 'public, min-fresh=3600, max-age=86400, s-maxage=86400, must-revalidate, must-understand')
-      headers.set('Location', redirects[path])
+      headers.append('Location', redirects[path])
       return new Response(null, {
         status: 301,
         headers,
       })
     }
 
+    // Serve homepage
+    if (path === "") {
+      headers.set('Cache-Control', 'public, min-fresh=3600, max-age=86400, s-maxage=86400, must-revalidate, must-understand')
+      headers.append('Content-Type', 'text/html;charset=utf-8')
+      headers.append('Link', `<${new URL(url).origin}>; rel="canonical"`)
+      return new Response(homepage, {
+        headers,
+      })
+    }
+
     // Private link list page
     if (env.LINKS_PAGE && path === env.LINKS_PAGE) {
-      headers.set('Content-Type', 'text/html;charset=utf-8')
+      headers.append('Content-Type', 'text/html;charset=utf-8')
       headers.set('Cache-Control', 'no-store')
       return new Response(`<!DOCTYPE html><html lang="en"><head><meta name="viewport" content="width=device-width"><title>Links List</title><style nonce="8a7f25cd6e9b">body{font-family:monospace;font-size:100%}li{font-size:1.25rem}</style></head><body><h1>Link List</h1><ul>${Object.entries(redirects).map(([code,link]) => `<li><a href="/${code}"><b>${code}</b></a> &raquo; ${link}</li>`).join('')}</ul></body></html>`, {
         headers,
@@ -81,18 +91,8 @@ export default {
       })
     }
 
-    // Redirect homepage to default 
-    if (path === "") {
-      headers.set('Cache-Control', 'public, min-fresh=3600, max-age=86400, s-maxage=86400, must-revalidate, must-understand')
-      headers.set('Content-Type', 'text/html;charset=utf-8')
-      headers.set('Link', `${new URL(url).origin}; rel="canonical"`)
-      return new Response(homepage, {
-        headers,
-      })
-    }
-
     // Show 404 for all other requests
-    headers.set('Content-Type', 'text/html;charset=utf-8')
+    headers.append('Content-Type', 'text/html;charset=utf-8')
     return new Response(notfound, {
       status: 404,
       headers,
