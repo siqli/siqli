@@ -4,4 +4,4 @@
 - Short URL generator
 - URL Redirector
 
-[Jam License][LICENSE]
+[Jam License](LICENSE)
