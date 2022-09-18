@@ -28,7 +28,7 @@ const headers = new Headers({
   'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload',
   'X-Robots-Tag': 'noindex, nofollow, noarchive, nosnippet, notranslate',
   'Content-Security-Policy': "base-uri 'self'; script-src 'none'; style-src 'nonce-8a7f25cd6e9b'; img-src 'self'; object-src 'none'; frame-ancestors 'none';",
-  'Siqli-Version': 'v2.2.2',
+  'Siqli-Version': 'v2.2.3',
   'Cache-Control': 'public, min-fresh=3600, max-age=86400, s-maxage=86400'
 })
 

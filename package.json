@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "siqli",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "description": "Use a Cloudflare worker as a basic URL redirector.",
   "homepage": "https://siq.li",
   "config": {
