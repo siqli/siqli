@@ -27,8 +27,8 @@ const headers = new Headers({
   'Feature-Policy': 'none',
   'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload',
   'X-Robots-Tag': 'index, follow, noarchive, nosnippet, notranslate',
-  'Content-Security-Policy': "base-uri 'self'; script-src 'none'; style-src 'nonce-8a7f25cd6e9b'; img-src 'self'; object-src 'none'; frame-ancestors 'none';",
-  'Siqli-Version': 'v2.2.3',
+  'Content-Security-Policy': "base-uri 'self'; script-src 'none'; style-src 'nonce-8a7f25cd6e9b'; img-src 'self' data:; object-src 'none'; frame-ancestors 'none';",
+  'Siqli-Version': 'v2.2.4',
   'Cache-Control': 'public, min-fresh=3600, max-age=86400, s-maxage=86400'
 })
 
