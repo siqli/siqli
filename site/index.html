@@ -31,11 +31,6 @@
         line-height: 150%;
         color: var(--fg1);
       }
-      h1:focus {
-        outline: none;
-        text-decoration: underline;
-        text-decoration-color: var(--fg2);
-      }
       a {
         color: var(--fg1);
       }
@@ -108,19 +103,45 @@
           font-size: 2rem;
         }
       }
+      .a11y-nav {
+        position: fixed;
+        z-index: 100;
+        padding: 1rem;
+        width: 100px;
+      }
+      .a11y-nav.top {
+        top: -3rem;
+      }
+      .a11y-nav.bot {
+        bottom: -10rem;
+      }
+      .a11y-nav a {
+        position: absolute;
+      }
+      .a11y-nav.top a:focus {
+        top: 4rem;
+      }
+      .a11y-nav.bot a:focus {
+        bottom: 12rem;
+      }
     </style>
   </head>
-  <body>
+  <body id="top">
     
+    <!-- a11y top nav -->
+    <div class="a11y-nav top">
+      <a href="#content">Skip to content</a>
+    </div>
+
     <header>
       
-      <h1 tabindex="0">Siqli</h1>
+      <h1>Siqli</h1>
     
     </header>
 
     <main>
 
-      <section>
+      <section id="content">
     
         <p>Writing uninspiring code.</p>
 
@@ -147,6 +168,11 @@
       <p>Jam License | <a href="https://github.com/siqli/siqli" title="GitHub">GitHub</a></p>
 
     </footer>
+
+    <!-- a11y return to top -->
+    <div class="a11y-nav bot">
+      <a href="#top">Back to top</a>
+    </div>
 
   </body>
 </html>
