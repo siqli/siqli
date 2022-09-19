@@ -8,6 +8,13 @@
 
 Configuration in this is used for `links/add.js` as is the `homepage`. Configure per requirements.
 
+## Optional Dependencies
+
+- `serve`: handy for testing the HTML pages without needing to run the worker.
+- `wrangler`: in case it isn't installed globally.
+
+Use `npm install --omit=optional` to skip.
+
 ## Private Links Page
 
 Set a `LINKS_PAGE` environment variable in the `wrangler.toml`, Cloudflare UI, or Wrangler CLI.
