@@ -4,11 +4,24 @@
 - Short URL generator
 - URL Redirector
 
-## `package.json` Config
+## Performance
 
-Configuration in this is used for `links/add.js` as is the `homepage`. Configure per requirements.
+As one might expect from a very simple page served by a Cloudflare Worker, this quick. 
 
-## Optional Dependencies
+!['As measured by https://web.dev/measure.'](siq.li-web.dev-scores.jpg)
+As measured by https://web.dev/measure.
+
+## `package.json`
+
+### `homepage`
+
+This is used for the copy to clipboard function of `links/add.js`
+
+### `config`
+
+Configuration in this is used for `links/add.js`. Configure per requirements.
+
+### `optionalDependencies`
 
 - `serve`: handy for testing the HTML pages without needing to run the worker.
 - `wrangler`: in case it isn't installed globally.
